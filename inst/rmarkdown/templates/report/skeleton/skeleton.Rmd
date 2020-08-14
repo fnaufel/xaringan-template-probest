@@ -1,7 +1,7 @@
 ---
-title: ""
-author: "fnaufel"
-date: "`r Sys.Date()`"
+title: ''
+author: 'fnaufel'
+date: '`r Sys.Date()`'
 output:
   xaringan::moon_reader:
     seal: false
@@ -48,10 +48,6 @@ theme_set(
 ```{css echo=FALSE}
 @import url(https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i|Quattrocento:400,700|Spectral:400,400i,700,700i&amp;subset=latin-ext);
 
-.remark-slide-content {
-  background-color: #ebefb4;
-}
-
 .remark-slide-number {
   visibility: hidden;
 }
@@ -70,6 +66,9 @@ class: title, shelf, no-footer, bottom
 background-color: #ffffff
 background-image: url(???)
 
+# Title
+
+## Subtitle
 
 ---
 
