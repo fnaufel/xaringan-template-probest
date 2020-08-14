@@ -1,0 +1,10 @@
+Package: fnaufelXaringanProbEst
+Type: Package
+Title: RMarkdown document template
+Version: 0.1.0
+Author: fnaufel
+Maintainer: fnaufel <fnaufel@gmail.com>
+Description: My Xaringan document template (ProbEst)
+License: CC BY-NC-SA
+Encoding: UTF-8
+LazyData: true
