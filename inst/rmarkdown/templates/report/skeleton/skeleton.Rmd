@@ -33,15 +33,51 @@ knitr::opts_chunk$set(
   fig.align = 'center'
 )
 
-library(tidyverse)
-theme_set(
-  theme_linedraw(base_size = 25) +
-  theme(
-    axis.line = element_blank(),
-    panel.border = element_blank(),
-    panel.grid.minor = element_blank()
-  )
+# Avoid scientific notation and use a comma as decimal separator
+options(
+  scipen = 15,
+  OutDec = ','
 )
+
+library(tidyverse)
+# Sober theme for ggplot
+theme_set(
+  theme_linedraw() +                         # Set simple theme for ggplot
+    theme(                                   # with some tweaks
+      axis.title.y.left = element_text(
+         angle = 0,                          # Never rotate y axis title
+         margin = margin(r = 20),            # Separate y axis title a little
+         vjust = .5                          # Leave y axis title in the middle
+      ),
+      axis.title.y.right = element_text(
+         angle = 0,                          # Never rotate y axis title
+         margin = margin(l = 20),            # Separate y axis title a little
+         vjust = .5                          # Leave y axis title in the middle
+      ),
+      axis.ticks.y.right = element_blank(),  # No ticks on secondary y axis
+      axis.title.x.bottom = element_text(
+         margin = margin(t = 20)             # Separate x axis title a little
+      ),
+      axis.line = element_blank(),           # No axis lines
+      panel.border = element_blank(),        # No frame
+      panel.grid.minor = element_blank()     # No grid minor lines
+    )
+)
+
+# Format a number with thousand separators (default point)
+# and decimal comma enclosed in curly braces for LaTeX printing.
+# CAREFUL: if called outside math mode, will print the braces!
+fm <- function(x, big = '.', decimal = '{,}', ...) {
+  if (!is.numeric(x)) {
+    x
+  } else {
+    prettyNum(x, big.mark = big, decimal.mark = decimal, ...)
+  }
+
+}
+
+# Set this as a hook for inline R code
+knitr::knit_hooks$set(inline = fm)
 
 ```
 
